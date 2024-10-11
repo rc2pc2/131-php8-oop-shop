@@ -45,12 +45,12 @@ class Product{
      * Tries to buy a product given the amount requested.
      *
      * @param integer $quantity the quantity of this product to buy.
-     * @return boolean true if it has been bought successfully, false otherwise.
+     * @return boolean|float when available returns the total price if the bought produtcs, false otherwise.
      */
-    public function buy(int $quantity = 1) : bool{
+    public function buy(int $quantity = 1) : bool|float{
         if ($quantity >= 1 && $quantity <= $this->numberInStock){
             $this->numberInStock = $this->numberInStock - $quantity; 
-            return true;
+            return $quantity * $this->price;
         } else {
             // % lancia eccezione prodotto finito
             return false;
