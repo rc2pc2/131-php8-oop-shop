@@ -1,5 +1,24 @@
 <?php 
-    require_once __DIR__ . "/classes/Animal.php";
+    require_once __DIR__ . "/classes/Category.php";
+    require_once __DIR__ . "/classes/Product.php";
+    require_once __DIR__ . "/classes/Toy.php";
+
+    $catsCategory = new Category("Cats", "https://www.favicon.cc/logo3d/822405.png");
+    $dogsCategory = new Category("Dogs", "https://www.favicon.cc/logo3d/87502.png");
+
+    $table = new Product("Tavolo Tranquillo", "Un tavolo che rende ogni conversazione tranquilla", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cassius_Marcellus_Coolidge_-_Poker_Game_%281894%29.png", 5, $dogsCategory, 855.55);
+
+    $plasticBone = new Toy("Osso di gomma", "Osso di gomma per cani un po' irrequieti come la versione del sistema operativo del padrone", "", 45, $dogsCategory, 33.99, "taglia grande", "plastica poliuretanica vegana");
+    var_dump($table->getNumberInStock());
+    var_dump($table->buy(33));
+    var_dump($table->getNumberInStock());
+
+
+    var_dump($plasticBone->getNumberInStock());
+    var_dump($plasticBone->buy(33));
+    var_dump($plasticBone->getNumberInStock());
+    // var_dump($plasticBone->getPrice());
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
